@@ -9,6 +9,14 @@ app.listen(port, () => {
 });
 
 
+// ************* Greeting ************* //
 app.get('/greeting/:name', (req, res) => {
 	res.send('Hello, ' + req.params.name);
+});
+
+
+// ************* Tip Calculator ************* //
+app.get('/tip/:total/:tipPercentage', (req, res) => {
+    const tipAmount = req.params.tipPercentage * req.params.total / 100;
+	res.send(`${tipAmount}`);
 });
