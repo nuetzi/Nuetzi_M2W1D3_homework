@@ -8,7 +8,7 @@ app.listen(port, () => {
 });
 
 const fs = require('fs');
-app.engine('homework3', (filePath, options, callback) => {              // Define the view engine called homework2
+app.engine('homework3', (filePath, options, callback) => {
   fs.readFile(filePath, (err, content) => {
     if (err) return callback(err);
     const rendered = content.toString()
