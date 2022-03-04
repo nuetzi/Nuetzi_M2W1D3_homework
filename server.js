@@ -7,7 +7,7 @@ app.listen(port, () => {
     console.log('Listening on port', port);
 });
 
-const fs = require('fs');
+const fs = require('fs');                                                       // Set up view engine
 app.engine('homework3', (filePath, options, callback) => {
   fs.readFile(filePath, (err, content) => {
     if (err) return callback(err);
@@ -30,7 +30,7 @@ app.get('/greeting/:name', (req, res) => {
 
 // ************* Tip Calculator ************* //
 app.get('/tip/:total/:tipPercentage', (req, res) => {
-    const tipAmount = req.params.tipPercentage * req.params.total / 100;
+  const tipAmount = req.params.tipPercentage * req.params.total / 100;
 	res.send(`${tipAmount}`);
 });
 
