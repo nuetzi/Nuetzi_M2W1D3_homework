@@ -21,11 +21,6 @@ app.engine('homework3', (filePath, options, callback) => {              // Defin
 app.set('views', './views');
 app.set('view engine', 'homework3');
 
-let bottleArray = [];                   // Create an array for our bottles of liquid page
-for (let i=0; i<100; i++) {             // values range from 0 to 99
-  bottleArray.push(i);
-};
-
 
 // ************* Greeting ************* //
 app.get('/greeting/:name', (req, res) => {
@@ -65,9 +60,9 @@ app.get('/magic/:question', (req, res) => {
 app.get('/', (req, res) => {
   res.render('template',
     {
-        title: `${bottleArray[99]}`,
-        content: `${bottleArray[99]}`,
-        next: `${bottleArray[98]}`
+        title: `99`,
+        content: `99`,
+        next: `98`
     });
 });
 
@@ -75,16 +70,16 @@ app.get('/:numberOfBottles', (req, res) => {
   if (req.params.numberOfBottles < 100 && req.params.numberOfBottles > 0) {
     res.render('template',
     {
-        title: `${bottleArray[req.params.numberOfBottles]}`,
-        content: `${bottleArray[req.params.numberOfBottles]}`,
-        next: `${bottleArray[req.params.numberOfBottles - 1]}`
+        title: `${req.params.numberOfBottles}`,
+        content: `${req.params.numberOfBottles}`,
+        next: `${req.params.numberOfBottles - 1}`
     });
   } else if (req.params.numberOfBottles == 0) {
     res.render('template',
     {
-        title: `${bottleArray[req.params.numberOfBottles]}`,
-        content: `${bottleArray[req.params.numberOfBottles]}`,
-        next: `${bottleArray[99]}`
+        title: `${req.params.numberOfBottles}`,
+        content: `${req.params.numberOfBottles}`,
+        next: `99`
     });
   }
   else {
